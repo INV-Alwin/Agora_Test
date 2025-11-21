@@ -43,6 +43,7 @@ if __name__ == "__main__":
 from flask import Flask, request, jsonify
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 # Load environment variables
 load_dotenv()
@@ -50,6 +51,8 @@ load_dotenv()
 from src.RtcTokenBuilder2 import RtcTokenBuilder, Role_Subscriber
 
 app = Flask(__name__)
+
+CORS(app)
 
 AGORA_APP_ID = os.getenv("AGORA_APP_ID")
 AGORA_APP_CERTIFICATE = os.getenv("AGORA_APP_CERTIFICATE")
